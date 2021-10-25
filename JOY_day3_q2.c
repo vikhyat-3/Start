@@ -2,39 +2,34 @@
 #include <stdlib.h>
 void main(){
 	int n,k;
-	printf("Enter matrix size: ");
+	printf("Enter array size: ");
 	scanf("%d",&n);
 	printf("Enter sum: ");
 	scanf("%d",&k);
 	int*a=(int*)malloc(n*sizeof(int));
 	printf("Enter elements: \n");
-	for(int i=0;i<n;i++){
+	for(int i=0;i<n;i++)
 		scanf("%d",&a[i]);
-		printf("%d",a[i]);
-	}
-	printf("HI%d ",k);
+	
 	for(int i=0;i<n;i++){
 		int sum=0;
-		printf("n");
 		for(int j=i;j<n;j++){
-		printf("in 2nd loop %d \n",sum);
 			if(sum==k)
 			{
 				printf("The sub array is [");
-				for(int p=i;p<=j;p++)
-					printf("%d ",a[p]);
-				printf("\n");
-				printf("Indices range from %d to %d",i,j);
+				int p;
+				for(p=i;p<j-1;p++)
+					printf("%d,",a[p]);
+				printf("%d]\n",a[p]);
+				printf("Indices range from %d to %d",i,j-1);
 				return;
 			}
-			else if(sum<k){
-				continue;
+			else if(sum<k)
 				sum+=a[j];
-				printf("\n%d\n",sum);
-			}
 			else
 				break;
 		}
 	}
+	printf("\nNot possible to obtain the sum");
 }
 	
